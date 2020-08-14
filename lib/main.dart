@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ocourse/constants.dart';
+import 'package:ocourse/details_screen.dart';
 import 'package:ocourse/model/category.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Online Course',
       theme: ThemeData(),
-      home: HomeScreen(),
+      home: DetailScreen(),
     );
   }
 }
