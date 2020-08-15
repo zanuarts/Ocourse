@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Online Course',
       theme: ThemeData(),
-      home: DetailScreen(),
+      home: HomeScreen(),
     );
   }
 }
@@ -84,7 +84,7 @@ class HomeScreen extends StatelessWidget {
                 itemBuilder: (context, index){
                   return Container(
                     padding: EdgeInsets.all(20),
-                    height: index.isEven ? 200 : 400,
+                    height: index.isEven ? 200 : 240,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       image: DecorationImage(

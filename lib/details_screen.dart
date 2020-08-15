@@ -150,7 +150,9 @@ class DetailScreen extends StatelessWidget{
                               child: SvgPicture.asset("assets/icons/shopping-bag.svg"),
                             ),
                             SizedBox(width: 20),
-                            Container(
+                            Expanded(
+                              child: Container(
+                                alignment: Alignment.center,
                               height: 56,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(40),
@@ -163,7 +165,8 @@ class DetailScreen extends StatelessWidget{
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                            )
+                            ) 
+                            ),
                           ],
                         ),
                       ),
@@ -210,7 +213,7 @@ class CourseContent extends StatelessWidget {
             text: TextSpan(
               children: [
                 TextSpan(
-                  text: "$duration mins",
+                  text: "$duration mins\n",
                   style: TextStyle(
                     color: kTextColor.withOpacity(.5),
                     fontSize: 18,
@@ -218,7 +221,7 @@ class CourseContent extends StatelessWidget {
                 ),
                 TextSpan(
                   text: title,
-                  style: kSubheadingextStyle.copyWith(
+                  style: kTitleTextStyle.copyWith(
                     fontWeight: FontWeight.w600,
                     height: 1.5,
                   )
