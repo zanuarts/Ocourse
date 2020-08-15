@@ -82,25 +82,115 @@ class DetailScreen extends StatelessWidget{
                   borderRadius: BorderRadius.circular(50),
                   color: Colors.white,
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(30),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text("Course Content", style: kHeadingextStyle),
-                      SizedBox(height: 30),
-                      Row(
+                child: Stack(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(30),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          
-                        ],
-                      )
-                    ],                    
-                  ),
+                          Text("Course Content", style: kTitleTextStyle),
+                          SizedBox(height: 30),
+                          CourseContent(
+                            number: "01",
+                            duration: 5.35,
+                            title: "Welcome to the Course",
+                            isDone: true,
+                          ),
+                          CourseContent(
+                            number: "02",
+                            duration: 19.04,
+                            title: "Design Thinking - Intro",
+                            isDone: true,
+                          ),
+                          CourseContent(
+                            number: "03",
+                            duration: 15.35,
+                            title: "Design Thinking Process",
+                            isDone: true,
+                          ),
+                          CourseContent(
+                            number: "04",
+                            duration: 5.35,
+                            title: "Customer Perspective",
+                            isDone: true,
+                          ),
+                        ],                    
+                      ),
+                    ),
+                    
+                  ],
                 ),
               ),
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class CourseContent extends StatelessWidget {
+  final String number;
+  final double duration;
+  final String title;
+  final bool isDone;
+  const CourseContent({
+    Key key,
+    this.number,
+    this.duration, 
+    this.title, 
+    this.isDone = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 30),
+      child: Row(
+        children: <Widget>[
+          Text(
+            number,
+            style: kHeadingextStyle.copyWith(
+              color: kTextColor.withOpacity(.15),
+              fontSize: 32,
+            ),
+          ),
+          SizedBox(width: 20),
+          RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "$duration mins",
+                  style: TextStyle(
+                    color: kTextColor.withOpacity(.5),
+                    fontSize: 18,
+                  )
+                ),
+                TextSpan(
+                  text: title,
+                  style: kSubheadingextStyle.copyWith(
+                    fontWeight: FontWeight.w600,
+                    height: 1.5,
+                  )
+                )
+              ]
+            ),
+          ),
+          Spacer(),
+          Container(
+            margin: EdgeInsets.only(left: 20),
+            height: 40,
+            width: 40,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: kGreenColor.withOpacity(isDone ? 1 : .5),
+            ),
+            child: Icon(
+              Icons.play_arrow, color: Colors.white
+            ),
+          )
+        ],
       ),
     );
   }
