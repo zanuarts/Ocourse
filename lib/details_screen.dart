@@ -26,7 +26,12 @@ class DetailScreen extends StatelessWidget{
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      SvgPicture.asset("assets/icons/arrow-left.svg"),
+                      GestureDetector(
+                        child: SvgPicture.asset("assets/icons/arrow-left.svg"),
+                        onTap: (){
+                          Navigator.pop(context);
+                        },
+                      ),
                       SvgPicture.asset("assets/icons/more-vertical.svg"),
                     ],
                   ),
@@ -86,8 +91,8 @@ class DetailScreen extends StatelessWidget{
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(30),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: ListView(
+                        // crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text("Course Content", style: kTitleTextStyle),
                           SizedBox(height: 30),
